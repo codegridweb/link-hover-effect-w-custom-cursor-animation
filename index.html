@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CG HOVER CURSOR</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <button class="hover-link" area-label="Hover Me" cursor-type="button">
+      <span area-hidden="true">
+        <span>Hover<span>Hover</span></span>
+        <span>Me<span>Me</span></span>
+      </span>
+    </button>
+    <script>
+      let cursor = document.getElementById("cursor");
+      const onMouseMove = (event) => {
+        cursor.style.left = event.pageX + "px";
+        cursor.style.top = event.pageY + "px";
+
+        if (event.target.hasAttribute("cursor-type")) {
+          let cursorSize = event.target.getAttribute("cursor-type");
+          cursor.classList.add(cursorSize);
+        } else {
+          cursor.classList = "";
+        }
+      };
+
+      document.addEventListener("mousemove", onMouseMove);
+    </script>
+  </body>
+</html>

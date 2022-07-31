@@ -1,0 +1,80 @@
+body {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  background: #000;
+}
+
+.hover-link {
+  margin: 0 auto;
+  border: none;
+  background: none;
+  color: #fff;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+  padding: 0 0 0.5rem;
+  font-family: "Monument Extended";
+  font-size: 3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-link > span {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  pointer-events: none;
+}
+
+.hover-link > span > span {
+  display: inline-block;
+}
+
+.hover-link > span > span:nth-of-type(1) {
+  transition: 0.4s ease all;
+}
+
+.hover-link > span > span:nth-of-type(2) {
+  transition: 0.4s ease all;
+  transition-delay: 0.07s;
+}
+
+.hover-link > span > span > span {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(200%);
+}
+
+.hover-link:hover > span > span,
+.hover-link:focus > span > span {
+  transform: translateY(-200%);
+}
+
+#cursor {
+  pointer-events: none;
+  width: 3rem;
+  height: 3rem;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.35s ease width, 0.35s ease height, 0.35s ease border,
+    0.35s ease background;
+  transform: translate(-50%, -50%);
+}
+
+#cursor.button {
+  width: 5rem;
+  height: 5rem;
+  border: solid 1px transparent;
+  background: rgba(255, 255, 255, 0.5);
+}
